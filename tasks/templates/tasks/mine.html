@@ -15,12 +15,12 @@
                 </thead>
                 <tbody>
                     {% for task_object in list_tasks %}
-                    <tr>
-                        <td>{{ task_object.name }}</td>
-                        <td>{{ task_object.start_date|date:"F j, Y" }}</td>
-                        <td>{{ task_object.due_date|date:"F j, Y" }}</td>
-                        <td>{{ task_object.is_completed|yesno }}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ task_object.name }}</td>
+                            <td>{{ task_object.start_date|date:"F j, Y" }}</td>
+                            <td>{{ task_object.due_date|date:"F j, Y" }}</td>
+                            <td>{{ task_object.is_completed|yesno }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>

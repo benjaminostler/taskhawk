@@ -1,7 +1,6 @@
 from django.shortcuts import (
     render,
     get_object_or_404,
-    get_list_or_404,
     redirect,
 )
 from projects.models import Project
@@ -40,9 +39,9 @@ def create_project(request):
         if form.is_valid():
             # save all info from form into variable
             project = form.save(False)
-            # add logged in user as the purchaser attribute in receipt
+            # add logged in user as the purchaser attribute in project
             project.owner = request.user
-            # Save receipt with user info
+            # Save project with user info
             project.save()
         # Redirect to a different page
         return redirect("list_projects")

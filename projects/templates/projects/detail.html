@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
 {% block title %}
-   {{ project_object.name }}
+    {{ project_object.name }}
 {% endblock title %}
-
 {% block content %}
     <div>
         <h1>{{ project_object.name }}</h1>
@@ -23,13 +22,13 @@
                 </thead>
                 <tbody>
                     {% for task_object in task_list %}
-                    <tr>
-                        <td>{{ task_object.name }}</td>
-                        <td>{{ task_object.assignee }}</td>
-                        <td>{{ task_object.start_date|date:"F j, Y" }}</td>
-                        <td>{{ task_object.due_date|date:"F j, Y" }}</td>
-                        <td>{{ task_object.is_completed|yesno }}</td>
-                    </tr>
+                        <tr>
+                            <td>{{ task_object.name }}</td>
+                            <td>{{ task_object.assignee }}</td>
+                            <td>{{ task_object.start_date|date:"F j, Y" }}</td>
+                            <td>{{ task_object.due_date|date:"F j, Y" }}</td>
+                            <td>{{ task_object.is_completed|yesno }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>

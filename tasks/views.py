@@ -1,9 +1,4 @@
-from django.shortcuts import (
-    render,
-    get_object_or_404,
-    get_list_or_404,
-    redirect,
-)
+from django.shortcuts import render, redirect
 from tasks.models import Task
 from tasks.forms import TaskForm
 from django.contrib.auth.decorators import login_required
@@ -17,7 +12,7 @@ def create_task(request):
         form = TaskForm(request.POST)
         # Check if the form is valid
         if form.is_valid():
-            # Save receipt
+            # Save task
             form.save
         # Redirect to a different page
         return redirect("show_my_tasks")
