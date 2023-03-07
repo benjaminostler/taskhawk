@@ -2,6 +2,9 @@
 
 {% block content %}
             <h1>My Projects</h1>
+            <p>
+                <a href="{% url 'create_project' %}">Create a new project</a>
+            </p>
             {% if list_projects|length == 0 %}
                 <p>You are not assigned to any projects</p>
             {% else %}
