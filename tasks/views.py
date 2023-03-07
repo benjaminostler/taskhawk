@@ -4,7 +4,6 @@ from django.shortcuts import (
     get_list_or_404,
     redirect,
 )
-from projects.models import Project
 from tasks.models import Task
 from tasks.forms import TaskForm
 from django.contrib.auth.decorators import login_required
@@ -21,10 +20,19 @@ def create_task(request):
             # Save receipt
             form.save
         # Redirect to a different page
-        return redirect("list_projects")
+        return redirect("show_my_tasks")
     else:
         # Create a new form instance
         form = TaskForm()
     # Add it to the context
     context = {"form": form}
-    return render(request, "projects/create.html", context)
+    return render(request, "tasks/create.html", context)
+
+
+@login_required
+def show_my_tasks(request):
+    list_tasks = Task.objects.filter(assignee=request.user)
+    context = {
+        "list_tasks": list_tasks,
+    }
+    return render(request, "tasks/mine.html", context)
